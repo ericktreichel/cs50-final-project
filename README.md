@@ -1,6 +1,7 @@
 # HOW TO CODE
 
-### Video Demo: URL-here
+### Try it out: https://how-to-code-50.herokuapp.com/
+### Video Demo: https://youtu.be/OWiyY_F7Jok
 
 #### Description:
 
