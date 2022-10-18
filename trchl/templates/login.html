@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block title %}- Login
+{% endblock %}
+
+{% block body %}
+
+<h2 class="maintitle">We can do awesome things coding</h2>
+<div class="wrapper">
+    <div class="frame"><img class="img-fluid img-left" src="/static/imgs/capy2.jpg" alt="capybara_astronaut" title='Turning the unthinkable into our reality'></div>
+    <div class="form2">
+        <form method="post" action="">
+            {{ form_login.csrf_token }}
+            <legend class="mb-4">User Login</legend>
+            <fieldset>
+                <div class="form-group">
+                    {{ form_login.email.label(class="form-label mb-0") }}
+                    {% if form_login.email.errors %}
+                    {{ form_login.email(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_login.email.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_login.email(class="form-control mb-2") }}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{ form_login.passwd.label(class="form-label mb-0") }}
+                    {% if form_login.passwd.errors %}
+                    {{ form_login.passwd(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_login.passwd.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_login.passwd(class="form-control mb-2") }}
+                    {% endif %}
+                    <div class="form-group">
+                        {{ form_login.remember_session.label(class="form-check-label") }}
+                        {{ form_login.remember_session(class="form-check-input mb-2") }}</div>
+            </fieldset>
+            <button class="button-81 mt-2" role="button">Log In {{ form_login.submit_login_button(class="hide") }}</button>
+        </form>
+    </div>
+    <div class="frame"><img class="img-fluid img-right" src="/static/imgs/capy4.jpg" alt="capybara_astronaut" title='An universe to explore...'></div>
+</div>
+
+{% endblock %}

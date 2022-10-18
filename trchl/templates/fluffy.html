@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block title %}- Fluffy Area
+{% endblock %}
+
+{% block body %}
+<div class="container div-corgi">
+    <h2 class="h2-corgi">Warning: Fluffiness Area Ahead:</h2>
+    <div class="heart"></div><a href="{{ url_for('fluffy') }}"><img class="img-fluid img-corgi" src="{{ corgi }}" title="Pet him..." alt="corgi picture"></a>
+
+</div>
+<div class="container">
+    <h5 class="h5-corgi">Usefull APIs? Nahh, not today. Here, APIs are used to deliver fluffy corgi picture to your screen.</h5>
+</div>
+
+
+{% endblock %}

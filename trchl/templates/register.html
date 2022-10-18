@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block title %}- Register
+{% endblock %}
+
+{% block body %}
+
+<h2 class="maintitle">You, coding the world (for better)</h2>
+<div class="wrapper">
+    <div class="frame"><img class="img-fluid img-left" src="/static/imgs/dragon1.jpg" alt="capybara_astronaut" title='"This website changed my life" -Jimmy, the Capynaut.'></div>
+    <div class="form2">
+        <form method="post" action="">
+            {{ form_register.csrf_token }}
+            <legend class="mb-4">Sign-up Form</legend>
+            <fieldset>
+                <div class="form-group">
+                    {{ form_register.username.label(class="form-label mb-0") }}
+                    {% if form_register.username.errors %}
+                    {{ form_register.username(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_register.username.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_register.username(class="form-control mb-2") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form_register.email.label(class="form-label mb-0") }}
+                    {% if form_register.email.errors %}
+                    {{ form_register.email(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_register.email.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_register.email(class="form-control mb-2") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form_register.passwd.label(class="form-label mb-0") }}
+                    {% if form_register.passwd.errors %}
+                    {{ form_register.passwd(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_register.passwd.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_register.passwd(class="form-control mb-2") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form_register.passwdck.label(class="form-label mb-0") }}
+                    {% if form_register.passwdck.errors %}
+                    {{ form_register.passwdck(class='form-control is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form_register.passwdck.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form_register.passwdck(class="form-control mb-3") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <button class="button-81 mt-2" role="button">Register{{ form_register.submit_register_button(class="hide") }}</button>
+        </form>
+    </div>
+    <div class="frame"><img class="img-fluid img-right" src="/static/imgs/capy9.jpg" alt="capybara_astronaut" title='"This website changed my life" -Jimmy, the Capynaut.'></div>
+</div>
+
+{% endblock %}

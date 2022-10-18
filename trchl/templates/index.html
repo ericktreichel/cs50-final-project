@@ -1,0 +1,143 @@
+{% extends 'layout.html' %}
+{% block title %}- Index
+{% endblock %}
+
+{% block body %}
+<div class="container intro-cs50">
+    <p class="intro-cs50-p">&emsp;&emsp;<big> Hello, World!</big> Erick here, and this is my final project for CS50x Introduction to Computer Science course, promoted by Harvard University. I created this web application using mostly Python and SQL to set the back-end, and HTML and CSS (and a bit of Javascript) to build the front-end. As a bonus (or perhaps a compensation for my lack of talent creating the design in general) I've filled some pages with images I have recently created using the AI plataform DALL-E 2: some fun (and maybe weird) portraits of animals that I love (like capybaras and corgis, why not?) having a good time coding.</p>
+    <p class="intro-cs50-p">&emsp;&emsp;The main purpose of this project (besides serving as my final project, of course) is to put into practice much of the knowledge I acquired during all these weeks throughout the course, whether in classes, or in the hundreds of hours spent searching on the internet for solutions to a variety of specific implementations and problems. This site is a mix of a personal blog with a forum, with a programming theme/background. Here users can make a post talking about something they are developing or studying, tell their daily routine or something like that, as they wish.</p>
+    <p class="intro-cs50-p">&emsp;&emsp; Thanks for passing by, and you can check out some of the key features of this web app by clicking the button below:</p>
+
+    <div class="mt-4">
+        <a class="btn btn-secondary ms-5 mb-5" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Click to see more
+        </a>
+
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <ul>
+                <li>Login control: You can create an account, log in, and then the app will keep track of your navigation through the application, and then you can log out whenever you want.</li>
+                <li>API implementation: APIs are not only helpful, but also inherent in every software or system nowadays, so of course I decided to implement an API in my project; although it's not a very usefull one though. I made use of a free API to show corgi pictures every time you access the <em>Fluffiness Area</em>.</li>
+                <li>Personalization: You are able to add more personal information about yourself than you provided when you created your account, or you can change your current information, including your profile picture. The profile pictures, by the way, once uploaded by the user, will be compressed and only then stored in the database. Users are able to post on the site, edit their posts, and even delete them if they wish.</li>
+                <li>Data persistence: This web app is supported by a database built with SQLAlchemy and Python, which allowed a relatively simple implementation.</li>
+                <li>Different validations: the code will perform multiple data validations when necessary, for instance, checking if the username and e-mail are unique at registration (or when the user tries to change them later, if so), if the passwords match, if all fields were filled and several other validations.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="container mt-5 mb-5">
+    <hr><br>
+</div>
+
+<div class="container" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+    <div class="my-5 text-center container">
+        <div class="row mb-2">
+            <div class="col text-center carousel-div-title">
+                <h1 class="carousel-title">ericktreichel x dall-e 2 collection</h1>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-1 d-flex align-items-center justify-content-center">
+                <a role="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <div class="carousel-nav-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6,1.6-1.6,4.2 0,5.8l54,53.9z" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            <div class="col-10">
+                <!--Start carousel-->
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div style="background-image:url('https://i.ibb.co/R959tcL/dall-e3.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+                                    <h3 class="text-white">Imagination.</h3>
+                                </div>
+                                <div style="background-image:url('https://i.ibb.co/f18bNVG/dall-e1.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+                                </div>
+                                <div style="background-image:url('https://i.ibb.co/R3YvjtT/dall-e7.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div style="background-image:url('https://i.ibb.co/0FcKB3v/dall-e5.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+                                </div>
+                                <div style="background-image:url('https://i.ibb.co/sC9Mg7s/dall-e6.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+
+                                </div>
+                                <div style="background-image:url('https://i.ibb.co/x6p8tvD/dall-e4.jpg');" class="col-12 col-md d-flex align-items-center justify-content-center">
+                                    <h3 class="text-white">Limitless.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End carousel-->
+            </div>
+            <div class="col-1 d-flex align-items-center justify-content-center"><a role="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <div class="carousel-nav-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if (qnt_posts > 0) %}
+
+<div class="container my-5  text-center"><br>
+    <h3>Latest member's posts</h3>
+</div>
+
+{% else %}
+
+<div class="container my-5 text-center"><br>
+    <h4>No posts to show yet</h4>
+</div>
+
+{% endif %}
+
+<!-- For loop rendering every post to be showed-->
+{% for post in posts %}
+<div class="container-xl mt-3 area-post p-0">
+    <div class="row container-xl mt-0 ps-0 pe-0 area-post-inner">
+        <div class="col-3 usercol ">
+            <div class="pe-0">
+                <img src="{{ url_for('static', filename='profile_pictures/{}'.format(post.author.profile_pic)) }}" class="img-fluid index-profile" width="200">
+                <h3 class="mt-2 author"><strong>{{ post.author.username }}</strong></h3>
+                <hr>
+                <div class="container mt-1 d-flex justify-content-left">
+                    <span class="nfav_tech">From: {{ post.author.place }}</span>
+                </div>
+                <div class="container mt-1 d-flex justify-content-left">
+                    {% if (post.author.fav_tech != '') %}
+                    <span class="nfav_tech">Favorite techs: {{ post.author.fav_tech }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col container-body">
+            <a class="link-post" href="{{ url_for('show_post', id_post=post.id_post) }}">
+                <h3>{{ post.title }}</h3>
+            </a>
+            <small class="text-muted">{{ post.pub_date.strftime('%d/%m/%Y, %H:%M') }}</small>
+            <p class="bodypost mt-2">{{ post.body }}</p>
+
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+<br><br><br>
+<img src="/static/bug.svg " class='bug lamp' title="Well done! One bug found and counting..." alt="easter egg bug">
+{% endblock %}

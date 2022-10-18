@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+{% block title %}- Post
+{% endblock %}
+
+{% block body %}
+<br>
+
+<div class="container-xl mt-3 area-post p-0">
+    <div class="row container-xl mt-0 ps-0 pe-0 area-post-inner">
+        <div class="col-3 usercol px-2 py-4">
+            <div class="userdata">
+                <img src="{{ url_for('static', filename='profile_pictures/{}'.format(post.author.profile_pic)) }}" class="img-fluid index-profile" width="200">
+                <h3 class="mt-2 author"><strong>{{ post.author.username }}</strong></h3>
+                <hr>
+                <div class="container mt-1 d-flex justify-content-left">
+                    <span class="nfav_tech">From: {{ post.author.place }}</span>
+                </div>
+                <div class="container mt-1 d-flex justify-content-left">
+                    {% if (post.author.fav_tech != '') %}
+                    <span class="nfav_tech">Favorite techs: {{ post.author.fav_tech }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            <hr>
+
+            <div class="commands">
+
+                {% if current_user == post.author %}
+                <div class="container">
+                    <a class="btn btn-warning btn-sm bu-rem" data-bs-toggle="modal" data-bs-target="#delete_post" href="#" role="button">
+                        Remove post
+                    </a>
+                    <button class="btn btn-sm btn-secondary bu-edi" href="#form_edit" data-bs-toggle="collapse" data-bs-target="#collapseExample">Edit post</button>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="col container-body">
+            <a class="link-post" href="{{ url_for('show_post', id_post=post.id_post) }}">
+                <h3>{{ post.title }}</h3>
+            </a>
+            <small class="text-muted">{{ post.pub_date.strftime('%d/%m/%Y, %H:%M:%S') }}</small>
+            <p class="bodypost mt-2">{{ post.body }}</p>
+
+        </div>
+    </div>
+</div>
+
+<br>
+{% if current_user == post.author %}
+<div class="modplusedit">
+    <div class="container collapse container-colap" id="collapseExample">
+        <div class="card card-body col-edi">
+            <div class="container form-edit form-edit-post">
+                <div class="row">
+                    <form method='POST' id="form_edit" name="form_edit" action="" class="p-4 mt-1">
+                        {{ form_edit_post.csrf_token }}
+                        <fieldset>
+                            <legend>Edit post</legend>
+                            <div class="form-group">
+                                {{ form_edit_post.title.label(class="form-label mt-3") }}
+                                {% if form_edit_post.title.errors and 'submit_login_button' in request.form %}
+                                {{ form_edit_post.title(class='form-control is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form_edit_post.title.errors %}
+                                    {{ error }}
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form_edit_post.title(class='form-control') }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_edit_post.body.label(class="form-label mt-3") }}
+                                {% if form_edit_post.body.errors and 'submit_login_button' in request.form %}
+                                {{ form_edit_post.body(class='form-control is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form_edit_post.body.errors %}
+                                    {{ error }}
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form_edit_post.body(class='form-control') }}
+                                {% endif %}
+                            </div>
+
+                        </fieldset>
+                        {{ form_edit_post.save_edits_button(class='btn btn-primary mt-3') }}
+                        <a href="{{ url_for('show_post', id_post=post.id_post) }}" class='btn btn-secondary ms-2 mt-3 me-5'>Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delete_post" tabindex="-1" aria-labelledby="delete_postLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="delete_postLabel"><strong>Remove post?</strong></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to remove this post?<br> This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form method="Post" action="{{ url_for('remove_post', id_post=post.id_post) }}"><button type="submit" class="btn btn-danger">Delete</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
