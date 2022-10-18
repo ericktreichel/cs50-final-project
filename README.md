@@ -21,7 +21,7 @@ Just as a joke I decided to implement an API on the site, on the page 'fluffy.ht
 
 I thought about implementing the possibility for users to leave comments on posts, but I ended up not developing this because it would be a very similar logic to implementing the posts themselves, where I would just add a new class in the 'models.py' file that would relate an id of the user who comments with the id of the specific post, another class in 'forms.py' and then render the form in the HTML file. I also thought of implementing some more useful APIs in the app, such as checking whether the registered email is valid, for example, but APIs are usually paid or have some very large limitations in use; so let's leave the dog images anyway.
 
-The flask app and its settings are all in the '**init**.py' file, which also includes the instances created for bcrypt, SQLAlchemy and login_manager.
-The only file to be executed to run the program is called 'app.py', and this is the only purpose of this file: to import the 'app.py' from the '**init**.py' and run the program. With the exception of the 'app.py' file, all the other files are inside the 'trchl' directory, which works as a kind of Python Package because it has the '**init**.py' file inside it.
+The flask app and its settings are all in the '__init__.py' file, which also includes the instances created for bcrypt, SQLAlchemy and login_manager.
+The only file to be executed to run the program is called 'app.py', and this is the only purpose of this file: to import the 'app.py' from the '__init__.py' and run the program. With the exception of the 'app.py' file, all the other files are inside the 'trchl' directory, which works as a kind of Python Package because it has the '__init__.py' file inside it.
 There is also the requirements.txt file which purpose is list all the dependencies from the project
 That' it. This was How to Code. This was CS50.
